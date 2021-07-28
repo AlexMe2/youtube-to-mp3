@@ -16,7 +16,7 @@ for i in results:
     print("["+str(counter+1) +"] " + i["title"])
     counter += 1
 while int(choice) > len(results) or choice.strip() == '' or int(choice) > len(results):
-    alegere = input("\nChoose a number: \n")
+    choice = input("\nChoose a number: \n")
     if choice.strip() == '':
         choice = len(results)+1
         continue
