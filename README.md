@@ -3,7 +3,8 @@ It's also using youtube-dl to download the m4a from youtube and ffmpeg to conver
 
 # youtube-search
 
-```import os
+```
+import os
 from youtubesearchpython import VideosSearch
 
 videosSearch = VideosSearch(input("What do you wanna search for? \n"), limit = 15)
