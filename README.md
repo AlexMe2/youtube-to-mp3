@@ -7,23 +7,22 @@ It's also using youtube-dl to download the m4a from youtube and ffmpeg to conver
 from youtubesearchpython import VideosSearch
 
 videosSearch = VideosSearch(input("What do you wanna search for? \n"), limit = 15)
-rezultate = []
+results = []
 for i in videosSearch.result()["result"]:
-    rezultate.append({"title" : i["title"], "link" : i["link"]})
-#print(rezultate)
-alegere = len(rezultate)+1
+    results.append({"title" : i["title"], "link" : i["link"]})
+choice = len(results)+1
 counter = 0
-for i in rezultate:
+for i in results:
     print("["+str(counter+1) +"] " + i["title"])
     counter += 1
-while int(alegere) > len(rezultate) or alegere.strip() == '' or int(alegere) > len(rezultate):
+while int(choice) > len(results) or choice.strip() == '' or int(choice) > len(results):
     alegere = input("\nChoose a number: \n")
-    if alegere.strip() == '':
-        alegere = len(rezultate)+1
+    if choice.strip() == '':
+        choice = len(results)+1
         continue
-    if not alegere.strip().isdigit():
-        alegere = len(rezultate)+1
+    if not choice.strip().isdigit():
+        choice = len(results)+1
         continue
-link = rezultate[counter - 1]["link"]
+link = results[counter - 1]["link"]
 os.system("youtube-dl --extract-audio --audio-format mp3 " + link)
 ```
